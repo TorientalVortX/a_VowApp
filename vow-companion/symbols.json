@@ -1,3 +1,4 @@
+
 {
     "symbols": [
         {"id": 1, "name": "Neutral", "description": "A balanced or neutral symbol", "image": "/images/neutral.webp"},
@@ -5,7 +6,7 @@
         {"id": 3, "name": "Witness", "description": "The entity behind the Darkness", "image": "/images/witness.webp"},
         {"id": 4, "name": "Plane", "description": "A geometric or dimensional symbol", "image": "/images/plane.webp"},
         {"id": 5, "name": "Love", "description": "Affection or allegiance", "image": "/images/love.webp"},
-        {"id": 6, "name": "Savathûn", "description": "The Witch Queen’s mark", "image": "/images/savathun.webp"},
+        {"id": 6, "name": "Savathûn", "description": "The Witch Queen's mark", "image": "/images/savathun.webp"},
         {"id": 7, "name": "Scorn", "description": "Symbol of the Scorn faction", "image": "/images/scorn.webp"},
         {"id": 8, "name": "Garden", "description": "The Black Garden, Vex domain", "image": "/images/garden.webp"},
         {"id": 9, "name": "Kill", "description": "Represents death or destruction", "image": "/images/kill.webp"},
