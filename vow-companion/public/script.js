@@ -1,11 +1,11 @@
 // Fetch and display symbols
-fetch('/api/symbols')
-    .then(response => response.json())
-    .then(data => {
-        const symbolGrid = document.getElementById('symbol-grid');
-        data.symbols.forEach(symbol => {
-            const card = document.createElement('div');
-            card.className = 'symbol-card';
+fetch("/api/symbols")
+    .then((response) => response.json())
+    .then((data) => {
+        const symbolGrid = document.getElementById("symbol-grid");
+        data.symbols.forEach((symbol) => {
+            const card = document.createElement("div");
+            card.className = "symbol-card";
             card.innerHTML = `
                 <img src="${symbol.image}" alt="${symbol.name}">
                 <h3>${symbol.name}</h3>
@@ -15,22 +15,29 @@ fetch('/api/symbols')
         });
     });
 
-// Callout functionality
+// Callout functionality with remove option
 function addCallout() {
-    const input = document.getElementById('callout-input');
-    const list = document.getElementById('callout-list');
+    const input = document.getElementById("callout-input");
+    const list = document.getElementById("callout-list");
     if (input.value.trim()) {
-        const li = document.createElement('li');
-        li.textContent = input.value;
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <span>${input.value}</span>
+            <button onclick="removeCallout(this)">Remove</button>
+        `;
         list.appendChild(li);
-        input.value = '';
+        input.value = "";
     }
 }
 
-// Encounter guides (unchanged)
-document.getElementById('encounter-select').addEventListener('change', (e) => {
-    const guide = document.getElementById('encounter-guide');
-    const encounter = e.target.value;
+function removeCallout(button) {
+    button.parentElement.remove(); // Remove the parent li element
+}
+
+// Encounter guides
+document.addEventListener("DOMContentLoaded", () => {
+    const guide = document.getElementById("encounter-guide");
+    const encounterSelect = document.getElementById("encounter-select");
     const guides = {
         acquisition: `
             <h3>Acquisition</h3>
@@ -85,7 +92,20 @@ document.getElementById('encounter-select').addEventListener('change', (e) => {
                 <li>Pervading Darkness stacks to x10 = wipe.</li>
             </ul>
             <p><strong>Tips:</strong> Coordinate deposits, use Supers (e.g., Thundercrash) for final stand.</p>
-        `
+        `,
     };
-    guide.innerHTML = guides[encounter] || '<p>Select an encounter to view the guide.</p>';
+
+    // Display the default encounter guide (Acquisition) on page load
+    const defaultEncounter = encounterSelect.value;
+    guide.innerHTML =
+        guides[defaultEncounter] ||
+        "<p>Select an encounter to view the guide.</p>";
+
+    // Event listener for changes to the encounter selector
+    encounterSelect.addEventListener("change", (e) => {
+        const encounter = e.target.value;
+        guide.innerHTML =
+            guides[encounter] ||
+            "<p>Select an encounter to view the guide.</p>";
+    });
 });

@@ -36,11 +36,9 @@ h3 {
 
 #symbol-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
     margin-bottom: 20px;
-    max-height: 400px;
-    overflow-y: auto;
 }
 
 .symbol-card {
@@ -62,18 +60,23 @@ h3 {
     height: 80px;
     object-fit: contain;
     margin-bottom: 5px;
-    image-rendering: -webkit-optimize-contrast; /* Improve WebP sharpness */
+    image-rendering: -webkit-optimize-contrast;
 }
 
 .symbol-card h3 {
     margin: 5px 0;
-    font-size: 14px;
+    font-size: 12px;
     color: #ff9999;
 }
 
 .symbol-card p {
-    font-size: 12px;
+    font-size: 10px;
     color: #cc9999;
+    margin: 0;
+}
+
+#callouts {
+    margin-top: 20px;
 }
 
 #callout-input {
@@ -92,16 +95,18 @@ button {
     color: #e6dcdc;
     cursor: pointer;
     border-radius: 3px;
-    transition: background 0.2s;
+    transition: background 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
     background: #ff3333;
+    box-shadow: 0 0 5px #ff6666; /* Glowing red effect on hover */
 }
 
 #callout-list {
     list-style: none;
     padding: 0;
+    margin-top: 10px;
 }
 
 #callout-list li {
@@ -110,6 +115,58 @@ button:hover {
     margin: 5px 0;
     border: 1px solid #660000;
     border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#callout-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 5px #ff3333; /* Subtle glow on hover for the entire list item */
+}
+
+#callout-list button {
+    background: #660000;
+    padding: 2px 6px;
+    font-size: 12px;
+    margin-left: 10px;
+    border-radius: 2px;
+    border: 1px solid #ff3333; /* Red outline for immersion */
+}
+
+#callout-list button:hover {
+    background: #ff3333;
+    box-shadow: 0 0 5px #ff6666; /* Glowing red effect on hover */
+}
+
+#encounters {
+    margin-top: 20px;
+}
+
+#encounter-select {
+    width: 100%;
+    padding: 8px;
+    background: #2b1a1a;
+    color: #e6dcdc;
+    border: 2px solid #660000;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Courier New', monospace; /* Match the title font for immersion */
+    box-shadow: 0 0 5px rgba(255, 51, 51, 0.5); /* Subtle red glow */
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#encounter-select:focus {
+    border-color: #ff3333;
+    outline: none;
+    box-shadow: 0 0 10px #ff6666; /* Stronger glow on focus */
+}
+
+#encounter-select option {
+    background: #2b1a1a;
+    color: #e6dcdc;
+    padding: 5px;
 }
 
 #encounter-guide {
@@ -117,6 +174,7 @@ button:hover {
     padding: 10px;
     border: 1px solid #660000;
     border-radius: 5px;
+    margin-top: 10px;
 }
 
 #encounter-guide ul {
@@ -125,4 +183,63 @@ button:hover {
 
 #encounter-guide li {
     margin: 5px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #symbol-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
+
+    .symbol-card img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .symbol-card h3 {
+        font-size: 10px;
+    }
+
+    .symbol-card p {
+        font-size: 8px;
+    }
+
+    #encounter-select {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    #callout-list button {
+        padding: 2px 4px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    #symbol-grid {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    }
+
+    .symbol-card {
+        padding: 5px;
+    }
+
+    .symbol-card img {
+        width: 50px;
+        height: 50px;
+    }
+
+    #encounter-select {
+        font-size: 10px;
+        padding: 4px;
+    }
+
+    #callout-list button {
+        padding: 1px 3px;
+        font-size: 8px;
+    }
 }
