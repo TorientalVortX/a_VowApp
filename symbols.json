@@ -4,7 +4,7 @@
             "id": 1,
             "name": "Neutral",
             "description": "A balanced or neutral symbol",
-            "image": "/images/neutral.webp"
+            "image": "./images/neutral.webp"
         },
         {
             "id": 2,
