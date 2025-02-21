@@ -15,6 +15,47 @@ body {
     border: 2px solid #660000;
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(102, 0, 0, 0.7);
+    position: relative;
+}
+
+/* Popout back button */
+.back-toggle {
+    display: none; /* Hide checkbox */
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px; /* Larger padding for bigger button */
+    background: #660000;
+    border: 1px solid #ff3333;
+    color: #e6e6fa;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 18px; /* Larger text */
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: fixed;
+    bottom: 20px; /* Bottom-left position */
+    left: 20px; /* Visible by default */
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.back-toggle:not(:checked) + .back-button {
+    left: -200px; /* Adjusted for larger button width */
+}
+
+.back-button:hover {
+    background: #ff3333;
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.7), 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.back-button:active {
+    box-shadow: 0 0 10px rgba(255, 51, 51, 0.5);
 }
 
 h1 {
@@ -22,6 +63,7 @@ h1 {
     color: #ff3333;
     text-shadow: 0 0 5px #ff6666;
     font-family: 'Courier New', monospace;
+    margin-top: 0; /* No top margin needed now */
 }
 
 h2 {
@@ -216,6 +258,10 @@ button:hover {
         padding: 4px 8px; /* Larger button */
         font-size: 12px;
     }
+    .back-button {
+        padding: 12px 24px; /* Slightly smaller but still large */
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -239,5 +285,14 @@ button:hover {
     #callout-list button {
         padding: 6px 10px; /* Larger button */
         font-size: 14px;
+    }
+    .back-button {
+        padding: 10px 20px;
+        font-size: 14px;
+        bottom: 15px; /* Closer to edge on small screens */
+        left: 15px;
+    }
+    h1 {
+        font-size: 24px;
     }
 }

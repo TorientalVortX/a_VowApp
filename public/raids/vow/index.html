@@ -1,0 +1,44 @@
+<!-- VowApp/public/raids/vow/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vow of the Disciple Companion</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <input type="checkbox" id="back-toggle" class="back-toggle" checked> <!-- Checked by default -->
+        <label for="back-toggle" class="back-button">Back</label>
+        <h1>Vow of the Disciple Companion</h1>
+        
+        <section id="symbols">
+            <h2>Raid Symbols</h2>
+            <div id="symbol-grid"></div>
+        </section>
+
+        <section id="callouts">
+            <h2>Quick Callouts</h2>
+            <ul id="callout-list"></ul>
+        </section>
+
+        <section id="encounters">
+            <h2>Encounter Guides</h2>
+            <select id="encounter-select">
+                <option value="acquisition">Acquisition</option>
+                <option value="caretaker">Caretaker</option>
+                <option value="exhibition">Exhibition</option>
+                <option value="rhulk">Rhulk</option>
+            </select>
+            <div id="encounter-guide"></div>
+        </section>
+    </div>
+    <script src="./script.js"></script>
+    <script>
+        document.querySelector('.back-button').addEventListener('click', () => {
+            window.location.href = '/';
+        });
+    </script>
+</body>
+</html>

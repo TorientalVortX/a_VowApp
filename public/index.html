@@ -1,36 +1,86 @@
+<!-- VowApp/public/index.html -->
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Vow of the Disciple Companion</title>
-        <link rel="stylesheet" href="style.css" />
+        <title>Destiny Raid Companion</title>
+        <style>
+            body {
+                font-family: "Arial", sans-serif;
+                background: #0a0019; /* Very dark purple-black, space-like */
+                color: #e6e6fa; /* Light lavender text */
+                margin: 0;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-image: radial-gradient(
+                        circle,
+                        rgba(255, 255, 255, 0.15) 1px,
+                        transparent 1px
+                    ),
+                    linear-gradient(
+                        to bottom,
+                        rgba(10, 0, 25, 0.9),
+                        rgba(0, 0, 0, 1)
+                    ); /* Stars + depth */
+                background-size:
+                    30px 30px,
+                    100% 100%; /* Larger starfield, full gradient */
+            }
+            .container {
+                text-align: center;
+                background: rgba(
+                    10,
+                    0,
+                    25,
+                    0.85
+                ); /* Dark purple-blue, semi-transparent */
+                padding: 40px;
+                border: 2px solid #4b4bff; /* Bright blue border (Light-inspired) */
+                border-radius: 10px;
+                box-shadow: 0 0 20px rgba(75, 75, 255, 0.5); /* Glowing blue shadow */
+            }
+            h1 {
+                color: #b3b3ff; /* Soft purple-blue */
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White glow */
+                font-family: "Courier New", monospace;
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+            p {
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+            button {
+                padding: 12px 24px;
+                background: #1a1a4d; /* Darker blue button */
+                border: 1px solid #4b4bff;
+                color: #e6e6fa;
+                cursor: pointer;
+                border-radius: 5px;
+                font-size: 16px;
+                transition:
+                    background 0.2s,
+                    box-shadow 0.2s,
+                    transform 0.2s;
+            }
+            button:hover {
+                background: #4b4bff; /* Bright blue on hover */
+                box-shadow: 0 0 15px rgba(75, 75, 255, 0.7);
+                transform: scale(1.05);
+            }
+        </style>
     </head>
     <body>
         <div class="container">
-            <h1>Vow of the Disciple Companion</h1>
-
-            <section id="symbols">
-                <h2>Raid Symbols</h2>
-                <div id="symbol-grid"></div>
-            </section>
-
-            <section id="callouts">
-                <h2>Quick Callouts</h2>
-                <ul id="callout-list"></ul>
-            </section>
-
-            <section id="encounters">
-                <h2>Encounter Guides</h2>
-                <select id="encounter-select">
-                    <option value="acquisition">Acquisition</option>
-                    <option value="caretaker">Caretaker</option>
-                    <option value="exhibition">Exhibition</option>
-                    <option value="rhulk">Rhulk</option>
-                </select>
-                <div id="encounter-guide"></div>
-            </section>
+            <h1>Destiny Raid Companion</h1>
+            <p>Select a raid to access its companion guide:</p>
+            <button onclick="window.location.href='/raids/vow/'">
+                Vow of the Disciple
+            </button>
         </div>
-        <script src="script.js"></script>
     </body>
 </html>

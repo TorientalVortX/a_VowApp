@@ -1,5 +1,5 @@
 // Fetch and display symbols
-fetch("/symbols.json")
+fetch(".//symbols.json")
     .then((response) => response.json())
     .then((data) => {
         const symbolGrid = document.getElementById("symbol-grid");
