@@ -1,4 +1,3 @@
 [build]
-base = "VowApp"
 command = "npm run build"
-publish = "dist/public"
+publish = "dist"
