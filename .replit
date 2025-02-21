@@ -12,6 +12,17 @@ channel = "stable-24_05"
 language = "nodejs"
 
 [deployment]
-run = ["node", "index.js"]
+run = ["sh", "-c", "node vow-companion/server.js"]
 deploymentTarget = "cloudrun"
 ignorePorts = false
+
+[workflows]
+runButton = "Run"
+
+[[workflows.workflow]]
+name = "Run"
+author = 10997171
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node vow-companion/server.js"
