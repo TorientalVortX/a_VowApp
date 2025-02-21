@@ -1,19 +1,17 @@
-
-const express = require('express');
-const path = require('path');
+const express = require("express");
+const path = require("path");
 const app = express();
-const port = 3000;
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/images', express.static(path.join(__dirname, 'images')));
+// Use dynamic port from Render or default to 3000 locally
+const port = process.env.PORT || 3000;
 
-// Symbol data endpoint
-const symbols = require('./symbols.json');
-app.get('/api/symbols', (req, res) => {
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/api/symbols", (req, res) => {
+    const symbols = require("./symbols.json");
     res.json(symbols);
 });
 
-app.listen(port, '0.0.0.0', () => {
-    console.log(`Server running at http://0.0.0.0:${port}`);
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });
