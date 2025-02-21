@@ -26,3 +26,7 @@ author = 10997171
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "node vow-companion/server.js"
+
+[[ports]]
+localPort = 3000
+externalPort = 80

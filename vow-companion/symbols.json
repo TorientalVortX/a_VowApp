@@ -1,99 +1,31 @@
 {
     "symbols": [
-        {
-            "id": 1,
-            "name": "Guardian",
-            "description": "A protector or warrior symbol"
-        },
-        {
-            "id": 2,
-            "name": "Darkness",
-            "description": "Symbol of the dark forces"
-        },
-        {
-            "id": 3,
-            "name": "Worship",
-            "description": "Represents devotion or reverence"
-        },
-        {
-            "id": 4,
-            "name": "Light",
-            "description": "Symbol of illumination or purity"
-        },
-        {
-            "id": 5,
-            "name": "Pyramid",
-            "description": "Represents the Pyramid ships"
-        },
-        { "id": 6, "name": "Traveler", "description": "The Light's source" },
-        {
-            "id": 7,
-            "name": "Hive",
-            "description": "Symbol of the Hive faction"
-        },
-        {
-            "id": 8,
-            "name": "Savathûn",
-            "description": "The Witch Queen's mark"
-        },
-        {
-            "id": 9,
-            "name": "Scorn",
-            "description": "Symbol of the Scorn faction"
-        },
-        {
-            "id": 10,
-            "name": "Earth",
-            "description": "Represents our home planet"
-        },
-        { "id": 11, "name": "Give", "description": "An offering or sacrifice" },
-        {
-            "id": 12,
-            "name": "Drink",
-            "description": "Consumption or absorption"
-        },
-        {
-            "id": 13,
-            "name": "Commune",
-            "description": "Connection or communication"
-        },
-        {
-            "id": 14,
-            "name": "Grieve",
-            "description": "Symbol of loss or mourning"
-        },
-        {
-            "id": 15,
-            "name": "Knowledge",
-            "description": "Wisdom or understanding"
-        },
-        {
-            "id": 16,
-            "name": "Kill",
-            "description": "Represents death or destruction"
-        },
-        { "id": 17, "name": "Stop", "description": "A halt or barrier" },
-        { "id": 18, "name": "Enter", "description": "Passage or entry" },
-        { "id": 19, "name": "Black Garden", "description": "The Vex domain" },
-        {
-            "id": 20,
-            "name": "Black Heart",
-            "description": "Core of the Black Garden"
-        },
-        {
-            "id": 21,
-            "name": "Witness",
-            "description": "The entity behind the Darkness"
-        },
-        { "id": 22, "name": "Fleet", "description": "A group of ships" },
-        { "id": 23, "name": "Love", "description": "Affection or allegiance" },
-        {
-            "id": 24,
-            "name": "Tower",
-            "description": "The Guardians' stronghold"
-        },
-        { "id": 25, "name": "Gift", "description": "A bestowed item or power" },
-        { "id": 26, "name": "Purpose", "description": "Reason or intent" },
-        { "id": 27, "name": "Unity", "description": "Togetherness or alliance" }
+        {"id": 1, "name": "Neutral", "description": "A balanced or neutral symbol", "image": "/images/neutral.webp"},
+        {"id": 2, "name": "Worship", "description": "Represents devotion or reverence", "image": "/images/worship.webp"},
+        {"id": 3, "name": "Witness", "description": "The entity behind the Darkness", "image": "/images/witness.webp"},
+        {"id": 4, "name": "Plane", "description": "A geometric or dimensional symbol", "image": "/images/plane.webp"},
+        {"id": 5, "name": "Love", "description": "Affection or allegiance", "image": "/images/love.webp"},
+        {"id": 6, "name": "Savathûn", "description": "The Witch Queen’s mark", "image": "/images/savathun.webp"},
+        {"id": 7, "name": "Scorn", "description": "Symbol of the Scorn faction", "image": "/images/scorn.webp"},
+        {"id": 8, "name": "Garden", "description": "The Black Garden, Vex domain", "image": "/images/garden.webp"},
+        {"id": 9, "name": "Kill", "description": "Represents death or destruction", "image": "/images/kill.webp"},
+        {"id": 10, "name": "Hive", "description": "Symbol of the Hive faction", "image": "/images/hive.webp"},
+        {"id": 11, "name": "Drink", "description": "Consumption or absorption", "image": "/images/drink.webp"},
+        {"id": 12, "name": "Worm", "description": "Symbol related to Hive worms", "image": "/images/worm.webp"},
+        {"id": 13, "name": "Heart", "description": "A core or vital symbol", "image": "/images/heart.webp"},
+        {"id": 14, "name": "Give", "description": "An offering or sacrifice", "image": "/images/give.webp"},
+        {"id": 15, "name": "Earth", "description": "Represents our home planet", "image": "/images/earth.webp"},
+        {"id": 16, "name": "Dark", "description": "Symbol of the dark forces", "image": "/images/dark.webp"},
+        {"id": 17, "name": "Light", "description": "Symbol of illumination or purity", "image": "/images/light.webp"},
+        {"id": 18, "name": "Guardian", "description": "A protector or warrior symbol", "image": "/images/guardian.webp"},
+        {"id": 19, "name": "Grief", "description": "Symbol of loss or mourning", "image": "/images/grief.webp"},
+        {"id": 20, "name": "Fleet", "description": "A group of ships", "image": "/images/fleet.webp"},
+        {"id": 21, "name": "Tower", "description": "The Guardians' stronghold", "image": "/images/tower.webp"},
+        {"id": 22, "name": "Enter", "description": "Passage or entry", "image": "/images/enter.webp"},
+        {"id": 23, "name": "Commune", "description": "Connection or communication", "image": "/images/commune.webp"},
+        {"id": 24, "name": "Stop", "description": "A halt or barrier", "image": "/images/stop.webp"},
+        {"id": 25, "name": "Brain", "description": "Symbol of intellect or cognition", "image": "/images/brain.webp"},
+        {"id": 26, "name": "Pyramid", "description": "Represents the Pyramid ships", "image": "/images/pyramid.webp"},
+        {"id": 27, "name": "Traveler", "description": "The Light's source", "image": "/images/traveler.webp"}
     ]
 }

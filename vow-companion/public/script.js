@@ -1,12 +1,13 @@
 // Fetch and display symbols
-fetch("/api/symbols")
-    .then((response) => response.json())
-    .then((data) => {
-        const symbolGrid = document.getElementById("symbol-grid");
-        data.symbols.forEach((symbol) => {
-            const card = document.createElement("div");
-            card.className = "symbol-card";
+fetch('/api/symbols')
+    .then(response => response.json())
+    .then(data => {
+        const symbolGrid = document.getElementById('symbol-grid');
+        data.symbols.forEach(symbol => {
+            const card = document.createElement('div');
+            card.className = 'symbol-card';
             card.innerHTML = `
+                <img src="${symbol.image}" alt="${symbol.name}">
                 <h3>${symbol.name}</h3>
                 <p>${symbol.description}</p>
             `;
@@ -16,19 +17,19 @@ fetch("/api/symbols")
 
 // Callout functionality
 function addCallout() {
-    const input = document.getElementById("callout-input");
-    const list = document.getElementById("callout-list");
+    const input = document.getElementById('callout-input');
+    const list = document.getElementById('callout-list');
     if (input.value.trim()) {
-        const li = document.createElement("li");
+        const li = document.createElement('li');
         li.textContent = input.value;
         list.appendChild(li);
-        input.value = "";
+        input.value = '';
     }
 }
 
-// Enhanced encounter guides
-document.getElementById("encounter-select").addEventListener("change", (e) => {
-    const guide = document.getElementById("encounter-guide");
+// Encounter guides (unchanged)
+document.getElementById('encounter-select').addEventListener('change', (e) => {
+    const guide = document.getElementById('encounter-guide');
     const encounter = e.target.value;
     const guides = {
         acquisition: `
@@ -84,8 +85,7 @@ document.getElementById("encounter-select").addEventListener("change", (e) => {
                 <li>Pervading Darkness stacks to x10 = wipe.</li>
             </ul>
             <p><strong>Tips:</strong> Coordinate deposits, use Supers (e.g., Thundercrash) for final stand.</p>
-        `,
+        `
     };
-    guide.innerHTML =
-        guides[encounter] || "<p>Select an encounter to view the guide.</p>";
+    guide.innerHTML = guides[encounter] || '<p>Select an encounter to view the guide.</p>';
 });
