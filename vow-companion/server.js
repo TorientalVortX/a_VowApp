@@ -6,6 +6,7 @@ const port = 3000;
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
 // Symbol data endpoint
 const symbols = require('./symbols.json');
