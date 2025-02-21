@@ -11,25 +11,28 @@ fetch("/api/symbols")
                 <h3>${symbol.name}</h3>
                 <p>${symbol.description}</p>
             `;
+            // Add click event to append symbol image and name to callouts
+            card.addEventListener("click", () => {
+                const list = document.getElementById("callout-list");
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <img src="${symbol.image}" alt="${symbol.name}">
+                    <span>${symbol.name}</span>
+                    <button onclick="removeCallout(this)">Remove</button>
+                `;
+                list.appendChild(li);
+
+                // Scroll to Quick Callouts after 3 symbols are selected
+                if (list.children.length === 3) {
+                    const calloutsSection = document.getElementById("callouts");
+                    calloutsSection.scrollIntoView({ behavior: "smooth" });
+                }
+            });
             symbolGrid.appendChild(card);
         });
     });
 
-// Callout functionality with remove option
-function addCallout() {
-    const input = document.getElementById("callout-input");
-    const list = document.getElementById("callout-list");
-    if (input.value.trim()) {
-        const li = document.createElement("li");
-        li.innerHTML = `
-            <span>${input.value}</span>
-            <button onclick="removeCallout(this)">Remove</button>
-        `;
-        list.appendChild(li);
-        input.value = "";
-    }
-}
-
+// Remove callout function
 function removeCallout(button) {
     button.parentElement.remove(); // Remove the parent li element
 }
@@ -95,13 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
         `,
     };
 
-    // Display the default encounter guide (Acquisition) on page load
     const defaultEncounter = encounterSelect.value;
     guide.innerHTML =
         guides[defaultEncounter] ||
         "<p>Select an encounter to view the guide.</p>";
 
-    // Event listener for changes to the encounter selector
     encounterSelect.addEventListener("change", (e) => {
         const encounter = e.target.value;
         guide.innerHTML =

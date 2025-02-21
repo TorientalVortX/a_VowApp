@@ -1,40 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vow of the Disciple Companion</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Vow of the Disciple Companion</h1>
-        
-        <section id="symbols">
-            <h2>Raid Symbols</h2>
-            <div id="symbol-grid"></div>
-        </section>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vow of the Disciple Companion</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Vow of the Disciple Companion</h1>
 
-        <section id="callouts">
-            <h2>Quick Callouts</h2>
-            <input type="text" id="callout-input" placeholder="Type your callout...">
-            <button onclick="addCallout()">Add Callout</button>
-            <ul id="callout-list"></ul>
-        </section>
+            <section id="symbols">
+                <h2>Raid Symbols</h2>
+                <div id="symbol-grid"></div>
+            </section>
 
-        <section id="encounters">
-            <h2>Encounter Guides</h2>
-            <select id="encounter-select">
-                <option value="acquisition">Acquisition</option>
-                <option value="caretaker">Caretaker</option>
-                <option value="exhibition">Exhibition</option>
-                <option value="rhulk">Rhulk</option>
-            </select>
-            <div id="encounter-guide">
-                <p>Select an encounter to view the guide.</p>
-            </div>
-        </section>
-    </div>
-    <script src="script.js"></script>
-</body>
+            <section id="callouts">
+                <h2>Quick Callouts</h2>
+                <ul id="callout-list"></ul>
+            </section>
+
+            <section id="encounters">
+                <h2>Encounter Guides</h2>
+                <select id="encounter-select">
+                    <option value="acquisition">Acquisition</option>
+                    <option value="caretaker">Caretaker</option>
+                    <option value="exhibition">Exhibition</option>
+                    <option value="rhulk">Rhulk</option>
+                </select>
+                <div id="encounter-guide"></div>
+            </section>
+        </div>
+        <script src="script.js"></script>
+    </body>
 </html>
