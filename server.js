@@ -1,9 +1,15 @@
 const express = require('express');
+const path = require('path');
 const app = express();
-const port = process.env.PORT || 3000; // Use Render's PORT or default to 3000 locally
 
-app.get('/', (req, res) => {
-    res.send('Hello from Render!');
+// Use dynamic port from Render or default to 3000 locally
+const port = process.env.PORT || 3000;
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/api/symbols', (req, res) => {
+    const symbols = require('./symbols.json');
+    res.json(symbols);
 });
 
 app.listen(port, () => {
