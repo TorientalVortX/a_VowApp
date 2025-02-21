@@ -1,0 +1,10 @@
+// symbols.json
+{
+    "symbols": [
+        {"id": 1, "name": "Guardian", "description": "A protector symbol"},
+        {"id": 2, "name": "Darkness", "description": "Represents the dark forces"},
+        {"id": 3, "name": "Worship", "description": "Symbol of devotion"},
+        {"id": 4, "name": "Light", "description": "Represents illumination"},
+        // Add more symbols as needed (there are 27 in total)
+    ]
+}
