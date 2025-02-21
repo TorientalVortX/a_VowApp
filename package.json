@@ -1,17 +1,14 @@
 {
-  "name": "nodejs",
+  "name": "vow-companion",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "cpy 'public/*' dist --parents"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@types/node": "^18.0.6",
-    "express": "^4.21.2"
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "cpy-cli": "^5.0.0"
   }
 }

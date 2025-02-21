@@ -1,5 +1,5 @@
 // Fetch and display symbols
-fetch("/api/symbols")
+fetch("/symbols.json")
     .then((response) => response.json())
     .then((data) => {
         const symbolGrid = document.getElementById("symbol-grid");
@@ -7,22 +7,20 @@ fetch("/api/symbols")
             const card = document.createElement("div");
             card.className = "symbol-card";
             card.innerHTML = `
-                <img src="${symbol.image}" alt="${symbol.name}">
-                <h3>${symbol.name}</h3>
-                <p>${symbol.description}</p>
-            `;
-            // Add click event to append symbol image and name to callouts
+            <img src="${symbol.image}" alt="${symbol.name}">
+            <h3>${symbol.name}</h3>
+            <p>${symbol.description}</p>
+        `;
             card.addEventListener("click", () => {
                 const list = document.getElementById("callout-list");
                 const li = document.createElement("li");
                 li.innerHTML = `
-                    <img src="${symbol.image}" alt="${symbol.name}">
-                    <span>${symbol.name}</span>
-                    <button onclick="removeCallout(this)">Remove</button>
-                `;
+                <img src="${symbol.image}" alt="${symbol.name}">
+                <span>${symbol.name}</span>
+                <button onclick="removeCallout(this)">Remove</button>
+            `;
                 list.appendChild(li);
 
-                // Scroll to Quick Callouts after 3 symbols are selected
                 if (list.children.length === 3) {
                     const calloutsSection = document.getElementById("callouts");
                     calloutsSection.scrollIntoView({ behavior: "smooth" });
