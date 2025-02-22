@@ -169,6 +169,18 @@ button:hover {
     image-rendering: -webkit-optimize-contrast;
 }
 
+.back-toggle:not(:checked) + .back-button { left: -220px; }
+
+.back-button:hover {
+    background: #b70b36;
+    box-shadow: 0 0 20px rgb(183, 11, 11, 0.8), 0 6px 16px rgba(0, 0, 0, 0.6);
+    transform: translateY(-2px);
+}
+
+.back-button:active { box-shadow: 0 0 12px rgba(184, 134, 11, 0.5); }
+
+.back-button:hover .back-icon { transform: translateX(-4px); }
+
 #callout-list li span {
     color: #ff9999;
     font-size: 12px;
@@ -258,10 +270,7 @@ button:hover {
         padding: 4px 8px; /* Larger button */
         font-size: 12px;
     }
-    .back-button {
-        padding: 12px 24px; /* Slightly smaller but still large */
-        font-size: 16px;
-    }
+    .back-button { padding: 12px 24px; font-size: 16px; }
 }
 
 @media (max-width: 480px) {
@@ -286,12 +295,8 @@ button:hover {
         padding: 6px 10px; /* Larger button */
         font-size: 14px;
     }
-    .back-button {
-        padding: 10px 20px;
-        font-size: 14px;
-        bottom: 15px; /* Closer to edge on small screens */
-        left: 15px;
-    }
+    
+    .back-button { padding: 10px 20px; font-size: 14px; bottom: 15px; left: 15px; }
     h1 {
         font-size: 24px;
     }

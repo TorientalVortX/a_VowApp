@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Last Wish Companion</title>
+        <link rel="stylesheet" href="./styles.css" />
+    </head>
+    <body>
+        <div class="container">
+            <header class="raid-header">
+                <h1>Last Wish Companion</h1>
+            </header>
+
+            <main>
+                <section id="encounter-content" class="content-section">
+                    <h2 class="section-title">Encounter Overview</h2>
+                    <div id="content-display" class="content-wrapper"></div>
+                </section>
+
+                <section id="encounter-map" class="content-section">
+                    <h2 class="section-title">Encounter Map</h2>
+                    <div id="map-display" class="map-wrapper"></div>
+                </section>
+
+                <section id="encounters" class="content-section">
+                    <h2 class="section-title">Encounter Selection</h2>
+                    <select id="encounter-select" class="encounter-dropdown">
+                        <option value="kalli">Kalli</option>
+                        <option value="shuro-chi">Shuro Chi</option>
+                        <option value="morgeth">Morgeth</option>
+                        <option value="vault">Vault</option>
+                        <option value="queens-walk">Queen’s Walk</option>
+                        <option value="riven-normal">Riven (Normal)</option>
+                        <option value="riven-cheese">Riven (Cheese)</option>
+                    </select>
+                    <div id="encounter-guide" class="guide-wrapper"></div>
+                </section>
+            </main>
+
+            <input
+                type="checkbox"
+                id="back-toggle"
+                class="back-toggle"
+                checked
+            />
+            <label for="back-toggle" class="back-button">
+                <span class="back-icon">←</span> Back to Raids
+            </label>
+        </div>
+
+        <!-- Full-view image modal -->
+        <div id="image-modal" class="modal">
+            <span class="modal-close">&times;</span>
+            <img id="modal-image" class="modal-content" alt="Expanded Image" />
+        </div>
+
+        <script src="./script.js"></script>
+        <script>
+            document
+                .querySelector(".back-button")
+                .addEventListener("click", () => {
+                    window.location.href = "/";
+                });
+        </script>
+    </body>
+</html>
