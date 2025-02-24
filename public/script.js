@@ -2,76 +2,120 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Script loaded: public/script.js");
 
-    // Function to detect mobile devices (screen width ≤480px or user agent check)
-    function isMobile() {
-        return (
-            window.innerWidth <= 480 ||
-            /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-                navigator.userAgent,
-            )
-        );
-    }
+    // Handle raid button navigation with event delegation
+    const raidButtons = document.querySelector(".raid-buttons");
+    raidButtons.addEventListener("click", (e) => {
+        const button = e.target.closest(".raid-button");
+        if (button) {
+            const raidPath = button.getAttribute("data-raid");
+            if (raidPath) {
+                window.location.href = raidPath;
+            } else {
+                console.error(
+                    "No data-raid attribute found on button:",
+                    button,
+                );
+            }
+        }
+    });
 
-    // Function to hide scrollbar on mobile but keep scrolling
-    function hideScrollbarOnMobile() {
+    // Detect mobile devices (screen width ≤480px or user agent)
+    const isMobile = () =>
+        window.innerWidth <= 480 ||
+        /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent,
+        );
+
+    // Hide scrollbar on mobile but maintain scrolling without affecting layout
+    const hideScrollbarOnMobile = () => {
         if (isMobile()) {
             console.log("Hiding scrollbar on mobile device");
-            document.body.style.overflow = "auto"; // Ensure scrolling is enabled
-            document.body.style.paddingRight = "0"; // Reset any padding from CSS
-            document.body.style.marginRight = "0"; // Reset any margin from CSS
-
-            // Use a wrapper or transform approach to hide scrollbar
-            document.body.style.position = "relative";
-            document.body.style.paddingRight = "17px"; // Compensate for hidden scrollbar width (approximate for mobile)
-            document.body.style.transform = "translateZ(0)";
-            document.body.style.webkitTransform = "translateZ(0)";
-
-            // Optional: Use a wrapper div if needed for complex layouts
+            const body = document.body;
             const container = document.querySelector(".container");
+
+            // Apply styles to hide scrollbar while keeping scrolling and preventing layout shifts
+            body.style.overflow = "auto";
+            body.style.paddingRight = "0"; // Reset to avoid text misalignment
+            body.style.marginRight = "0"; // Reset to prevent layout shifts
+            body.style.position = "relative";
+            body.style.transform = "translateZ(0)";
+            body.style.webkitTransform = "translateZ(0)";
+            body.style.scrollbarWidth = "none";
+            body.style.msOverflowStyle = "none";
+            body.style.WebkitOverflowScrolling = "touch";
+            body.style.WebkitScrollbarWidth = "none";
+
             if (container) {
-                container.style.overflowY = "auto"; // Ensure container can scroll
+                container.style.overflowY = "auto";
                 container.style.paddingRight = "0"; // Reset padding
-                container.style.marginRight = "-17px"; // Offset to hide scrollbar
+                container.style.marginRight = "0"; // Reset margin to prevent misalignment
                 container.style.transform = "translateZ(0)";
                 container.style.webkitTransform = "translateZ(0)";
+                container.style.scrollbarWidth = "none";
+                container.style.msOverflowStyle = "none";
+                container.style.WebkitOverflowScrolling = "touch";
+                container.style.WebkitScrollbar = "none";
             }
+
+            // Handle touch scrolling for smooth behavior
+            let touchStartY = 0;
+            body.addEventListener(
+                "touchstart",
+                (e) => {
+                    touchStartY = e.touches[0].clientY;
+                },
+                { passive: true },
+            );
+
+            body.addEventListener(
+                "touchmove",
+                (e) => {
+                    const touchCurrentY = e.touches[0].clientY;
+                    const deltaY = touchStartY - touchCurrentY;
+                    body.scrollTop += deltaY;
+                    touchStartY = touchCurrentY;
+                    e.preventDefault(); // Prevent default scrolling if needed
+                },
+                { passive: false },
+            );
         } else {
             console.log("Desktop/tablet detected, keeping default scrollbar");
-            document.body.style.overflow = "auto";
-            document.body.style.paddingRight = "0";
-            document.body.style.marginRight = "0";
-            document.body.style.position = "";
-            document.body.style.transform = "";
-            document.body.style.webkitTransform = "";
-
+            const body = document.body;
             const container = document.querySelector(".container");
+
+            // Reset styles for desktop
+            body.style.overflow = "auto";
+            body.style.paddingRight = "0";
+            body.style.marginRight = "0";
+            body.style.position = "";
+            body.style.transform = "";
+            body.style.webkitTransform = "";
+            body.style.scrollbarWidth = "";
+            body.style.msOverflowStyle = "";
+            body.style.WebkitOverflowScrolling = "";
+            body.style.WebkitScrollbarWidth = "";
+
             if (container) {
                 container.style.overflowY = "auto";
                 container.style.paddingRight = "0";
                 container.style.marginRight = "0";
                 container.style.transform = "";
                 container.style.webkitTransform = "";
+                container.style.scrollbarWidth = "";
+                container.style.msOverflowStyle = "";
+                container.style.WebkitOverflowScrolling = "";
+                container.style.WebkitScrollbar = "";
             }
         }
-    }
+    };
 
-    // Apply scrollbar hiding on load and resize
+    // Apply scrollbar hiding on load, resize, and orientation change
     hideScrollbarOnMobile();
     window.addEventListener("resize", hideScrollbarOnMobile);
+    window.addEventListener("orientationchange", hideScrollbarOnMobile);
 
-    // Handle touch events to ensure smooth scrolling
-    let touchStartY = 0;
-    document.body.addEventListener("touchstart", (e) => {
-        touchStartY = e.touches[0].clientY;
-    });
-
-    document.body.addEventListener("touchmove", (e) => {
-        if (isMobile()) {
-            const touchCurrentY = e.touches[0].clientY;
-            const deltaY = touchStartY - touchCurrentY;
-            document.body.scrollTop += deltaY;
-            touchStartY = touchCurrentY;
-            e.preventDefault(); // Prevent default scrolling behavior if needed
-        }
-    });
+    // Fallback to ensure no scrollbar appears on initial load
+    if (isMobile()) {
+        hideScrollbarOnMobile();
+    }
 });

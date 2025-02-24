@@ -1,27 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Destiny Raid Companion</title>
-    <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Destiny Raid Companion</h1>
-        <p>Select a raid to access its companion guide:</p>
-        <div class="raid-buttons">
-            <button class="vow-button" onclick="window.location.href='/raids/vow/'">
-                Vow of the Disciple
-            </button>
-            <button class="last-wish-button" onclick="window.location.href='/raids/last-wish/'">
-                Last Wish
-            </button>
-            <button class="root-nightmares-button" onclick="window.location.href='/raids/root-of-nightmares/'">
-                Root of Nightmares
-            </button>
-        </div>
-    </div>
-    <script src="./script.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <meta
+            name="description"
+            content="Select a Destiny 2 raid to access its companion guide for strategies and tips."
+        />
+        <meta name="theme-color" content="#0a0019" />
+        <title>Destiny Raid Companion</title>
+        <link
+            rel="stylesheet"
+            href="./styles.css"
+            media="screen"
+            onload="this.media='all'"
+        />
+        <noscript><link rel="stylesheet" href="./styles.css" /></noscript>
+    </head>
+    <body>
+        <main class="container" role="navigation" aria-label="Raid Selection">
+            <h1 class="raid-title">Destiny Raid Companion</h1>
+            <p class="raid-description">
+                Select a raid to access its companion guide:
+            </p>
+            <div class="raid-buttons">
+                <button class="raid-button vow-button" data-raid="/raids/vow/">
+                    Vow of the Disciple
+                </button>
+                <button
+                    class="raid-button last-wish-button"
+                    data-raid="/raids/last-wish/"
+                >
+                    Last Wish
+                </button>
+                <button
+                    class="raid-button root-nightmares-button"
+                    data-raid="/raids/root-of-nightmares/"
+                >
+                    Root of Nightmares
+                </button>
+            </div>
+        </main>
+        <script src="./script.js" type="module" defer></script>
+        <noscript>
+            <style>
+                .raid-button {
+                    pointer-events: none;
+                    opacity: 0.5;
+                }
+            </style>
+            <p class="noscript-message">
+                JavaScript is required for interactive navigation. Please enable
+                JavaScript to use this site.
+            </p>
+        </noscript>
+    </body>
 </html>
