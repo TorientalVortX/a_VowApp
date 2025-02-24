@@ -1,0 +1,350 @@
+/* VowApp/public/raids/root-of-nightmares/styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2d 100%); /* Dark Pyramid black/grey gradient */
+    color: #e6e6e6; /* Light grey text for contrast */
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(10, 10, 20, 0.9); /* Dark Pyramid background with transparency */
+    padding: 25px;
+    border: 2px solid #ff8c00; /* Bright orange border for Nezarec’s theme */
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255, 140, 0, 0.5), inset 0 0 10px rgba(255, 140, 0, 0.2); /* Orange glow */
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.raid-header {
+    position: relative;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 140, 0, 0.3); /* Subtle orange line */
+    margin-bottom: 25px;
+}
+
+h1 {
+    color: #ff8c00; /* Bright orange for title, Nezarec’s signature */
+    text-shadow: 0 0 12px rgba(255, 140, 0, 0.8); /* Orange glow */
+    font-family: 'Courier New', monospace;
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+    transition: text-shadow 0.3s ease;
+}
+
+.back-toggle { display: none; }
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #1a1a2d, #2d2d3d); /* Dark gradient for button */
+    border: 2px solid #ff8c00; /* Orange border */
+    color: #e6e6e6;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.back-toggle:not(:checked) + .back-button { left: -220px; }
+
+.back-button:hover {
+    background: #ff8c00; /* Orange on hover */
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.8), 0 6px 16px rgba(0, 0, 0, 0.6);
+    transform: translateY(-2px);
+}
+
+.back-button:active { box-shadow: 0 0 12px rgba(255, 140, 0, 0.5); }
+
+.back-icon {
+    margin-right: 8px;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.back-button:hover .back-icon { transform: translateX(-4px); }
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.content-section {
+    padding: 20px;
+    background: rgba(15, 15, 25, 0.85); /* Slightly lighter dark Pyramid background */
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4); /* Orange glow on hover */
+}
+
+.section-title {
+    color: #ffd700; /* Gold for Light/Dark contrast, subtle Nezarec influence */
+    border-bottom: 2px dashed #ff8c00; /* Orange dashed line */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-shadow: 0 1px 4px rgba(255, 215, 0, 0.4); /* Gold shadow */
+    position: relative;
+}
+
+.section-title::before {
+    content: "✦"; /* Star icon for thematic flair */
+    color: #ff8c00;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.content-wrapper, .map-wrapper {
+    text-align: center;
+}
+
+.content-wrapper {
+    text-align: left; /* Left-align text for readability */
+    padding: 10px;
+}
+
+.content-wrapper h3 {
+    color: #ffd700; /* Gold for headers */
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-shadow: 0 1px 3px rgba(255, 215, 0, 0.4);
+}
+
+.content-wrapper p {
+    color: #e6e6e6;
+    line-height: 1.6; /* Better readability */
+    margin-bottom: 10px;
+}
+
+.content-wrapper strong {
+    color: #ff8c00; /* Orange for emphasis */
+}
+
+.map-wrapper img {
+    max-width: 100%;
+    height: auto;
+    margin: 15px auto;
+    display: block;
+    border: 2px solid #ff8c00; /* Orange border for images */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3); /* Orange shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Indicate clickable */
+}
+
+.map-wrapper img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5); /* Stronger orange glow on hover */
+}
+
+#encounters {
+    margin-top: 30px;
+    padding: 15px;
+    background: rgba(15, 15, 25, 0.85);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#encounters:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4); /* Orange glow on hover */
+}
+
+.encounter-dropdown {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #1a1a2d, #2d2d3d); /* Dark gradient */
+    color: #e6e6e6;
+    border: 2px solid #ff8c00; /* Orange border */
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.encounter-dropdown:focus {
+    border-color: #ff8c00;
+    outline: none;
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.7); /* Orange glow on focus */
+}
+
+.encounter-dropdown option {
+    background: #1a1a2d;
+    color: #e6e6e6;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.guide-wrapper {
+    background: rgba(15, 15, 25, 0.9);
+    padding: 20px;
+    border: 2px solid #ff8c00; /* Orange border */
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.guide-wrapper:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5); /* Orange glow on hover */
+}
+
+.guide-wrapper ul { padding-left: 25px; }
+.guide-wrapper li { margin: 8px 0; font-size: 14px; }
+
+/* Modal for full-view images */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 20, 0.95); /* Dark Pyramid background */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+    margin: auto;
+    background: transparent;
+}
+
+#modal-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border: 2px solid #ff8c00; /* Orange border */
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 140, 0, 0.7); /* Orange glow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+    opacity: 1;
+}
+
+#modal-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(255, 140, 0, 0.8); /* Stronger orange glow on hover */
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #e6e6e6;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: rgba(15, 15, 25, 0.8);
+    z-index: 1001;
+}
+
+.modal-close:hover {
+    color: #ff8c00; /* Orange on hover */
+    background: rgba(15, 15, 25, 0.9);
+}
+
+/* Additional Info Section */
+#additional-info {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(15, 15, 25, 0.85);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#additional-info:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4); /* Orange glow on hover */
+}
+
+#additional-display {
+    text-align: left;
+}
+
+#additional-display h3 {
+    color: #ffd700; /* Gold for headers */
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-shadow: 0 1px 3px rgba(255, 215, 0, 0.4);
+}
+
+#additional-display p {
+    color: #e6e6e6;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container { padding: 15px; }
+    .raid-header { padding-bottom: 15px; }
+    h1 { font-size: 32px; margin-bottom: 15px; }
+    .back-button { padding: 12px 24px; font-size: 16px; }
+    .content-section, #additional-info { padding: 15px; }
+    .section-title { font-size: 20px; margin-bottom: 15px; }
+    .map-wrapper img { margin: 12px auto; }
+    #encounters, #additional-info { padding: 12px; }
+    .encounter-dropdown { padding: 10px; font-size: 14px; }
+    .guide-wrapper, #additional-display { padding: 15px; margin-top: 15px; }
+    #additional-display h3 { font-size: 16px; }
+    .modal-content { max-width: 95%; max-height: 95%; }
+    .modal-close { top: 10px; right: 10px; font-size: 20px; }
+}
+
+@media (max-width: 480px) {
+    body { padding: 10px; }
+    .container { padding: 10px; }
+    .raid-header { padding-bottom: 10px; }
+    h1 { font-size: 28px; margin-bottom: 10px; }
+    .back-button { padding: 10px 20px; font-size: 14px; bottom: 15px; left: 15px; }
+    .content-section, #additional-info { padding: 12px; }
+    .section-title { font-size: 18px; margin-bottom: 12px; }
+    .map-wrapper img { margin: 10px auto; }
+    #encounters, #additional-info { padding: 10px; }
+    .encounter-dropdown { padding: 8px; font-size: 12px; }
+    .guide-wrapper, #additional-display { padding: 12px; margin-top: 12px; }
+    #additional-display h3 { font-size: 14px; }
+    .modal-content { max-width: 100%; max-height: 100%; }
+    .modal-close { top: 8px; right: 8px; font-size: 18px; }
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Root of Nightmares Companion</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="raid-header">
+            <h1>Root of Nightmares Companion</h1>
+        </header>
+
+        <main>
+            <section id="encounter-content" class="content-section">
+                <h2 class="section-title">Encounter Overview</h2>
+                <div id="content-display" class="content-wrapper"></div>
+            </section>
+
+            <section id="encounter-map" class="content-section">
+                <h2 class="section-title">Encounter Map</h2>
+                <div id="map-display" class="map-wrapper"></div>
+            </section>
+
+            <section id="encounters" class="content-section">
+                <h2 class="section-title">Encounter Selection</h2>
+                <select id="encounter-select" class="encounter-dropdown">
+                    <option value="opening">Opening & Deepsight Puzzle</option>
+                    <option value="cataclysm">Cataclysm</option>
+                    <option value="scission">Scission</option>
+                    <option value="jumping-puzzle">Jumping Puzzle</option>
+                    <option value="macrocosm">Macrocosm</option>
+                    <option value="nezarec">Nezarec</option>
+                </select>
+                <div id="encounter-guide" class="guide-wrapper"></div>
+            </section>
+
+            <!-- Deepsight Resonance and Secret Chests Notes -->
+            <section id="additional-info" class="content-section">
+                <h2 class="section-title">Additional Info</h2>
+                <div id="additional-display" class="content-wrapper">
+                    <h3>Deepsight Resonance Puzzle</h3>
+                    <p>Complete three puzzles throughout the raid for a guaranteed Deepsight Resonance weapon after defeating Nezarec. Check seeds (Light/Dark order) at the start, and solve node puzzles in hidden rooms during Opening, Jumping Puzzle, and before Nezarec.</p>
+                    <p><strong>Puzzle 1:</strong> After opening, jump through rubble behind the iridescent platform. Shoot the node matching the first seed’s color, connecting it correctly to see "Your Actions Take Root."</p>
+                    <p><strong>Puzzle 2:</strong> In the Jumping Puzzle, use the launchpad on a building, turn around, and jump into a floating building to find the second node.</p>
+                    <p><strong>Puzzle 3:</strong> Before Nezarec, ascend the large cube, look down, jump to debris below, and enter the room for the final node.</p>
+
+                    <h3>Secret Chests</h3>
+                    <p><strong>Secret Chest #1:</strong> After Cataclysm, follow the iridescent path left, jump through the door on the right where Scions snipe, defeat enemies, and find the chest with a Tormenter.</p>
+                    <p><strong>Secret Chest #2:</strong> In the Jumping Puzzle’s large arena, turn around, look left, shoot the Darkness node below to unlock a door in the back holding the chest.</p>
+                </div>
+            </section>
+        </main>
+
+        <input type="checkbox" id="back-toggle" class="back-toggle" checked>
+        <label for="back-toggle" class="back-button">
+            <span class="back-icon">←</span> Back to Raid Selector
+        </label>
+
+        <!-- Full-view image modal -->
+        <div id="image-modal" class="modal">
+            <span class="modal-close">×</span>
+            <img id="modal-image" class="modal-content" alt="Expanded Image">
+        </div>
+    </div>
+    <script src="./script.js"></script>
+    <script>
+        document.querySelector('.back-button').addEventListener('click', () => {
+            window.location.href = '/';
+        });
+    </script>
+</body>
+</html>

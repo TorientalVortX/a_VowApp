@@ -1,7 +1,7 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: #0a0019;
-    color: #e6e6fa;
+    background: #0a0019; /* Deep purple base, matching Destiny’s dark theme */
+    color: #e6e6fa; /* Lavender text for contrast, tying to Last Wish purple */
     margin: 0;
     padding: 20px;
     display: flex;
@@ -11,21 +11,84 @@ body {
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
                      linear-gradient(to bottom, rgba(10, 0, 25, 0.9), rgba(0, 0, 0, 1));
     background-size: 30px 30px, 100% 100%;
+    overflow-y: auto; /* Ensure body can scroll if needed */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    -webkit-transform: translateZ(0); /* Force GPU acceleration for better rendering */
+    transform: translateZ(0);
 }
 
+/* Fallback to hide scrollbar on mobile (≤480px) but keep functionality */
+@media (max-width: 480px) {
+    body {
+        -webkit-scrollbar-width: none; /* Firefox */
+        scrollbar-width: none; /* Chrome, Safari, Edge (modern) */
+        -webkit-overflow-scrolling: touch;
+        overflow-y: auto; /* Maintain scrolling */
+        -ms-overflow-style: none; /* IE/Edge */
+    }
+
+    body::-webkit-scrollbar {
+        display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari) */
+        width: 0;
+        height: 0;
+    }
+
+    body::-webkit-scrollbar-track {
+        display: none;
+        background: transparent;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        display: none;
+        background: transparent;
+    }
+}
+
+/* Ensure container doesn’t show scrollbar on mobile (≤480px) but keep functionality */
 .container {
     text-align: center;
-    background: rgba(10, 0, 25, 0.85);
+    background: rgba(10, 0, 25, 0.85); /* Dark purple background with transparency */
     padding: 40px;
-    border: 2px solid #4b4bff;
+    border: 2px solid #4b4bff; /* Bright blue-purple border, tying to Last Wish/Vow */
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(75, 75, 255, 0.5);
+    box-shadow: 0 0 20px rgba(75, 75, 255, 0.5); /* Purple-blue glow */
     max-width: 90%;
+    overflow-y: auto; /* Allow scrolling within container if content overflows */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    -webkit-transform: translateZ(0); /* Force GPU acceleration */
+    transform: translateZ(0);
+}
+
+/* Fallback to hide scrollbar in container on mobile (≤480px) but keep functionality */
+@media (max-width: 480px) {
+    .container {
+        -webkit-scrollbar-width: none;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        overflow-y: auto;
+        -ms-overflow-style: none;
+    }
+
+    .container::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+
+    .container::-webkit-scrollbar-track {
+        display: none;
+        background: transparent;
+    }
+
+    .container::-webkit-scrollbar-thumb {
+        display: none;
+        background: transparent;
+    }
 }
 
 h1 {
-    color: #b3b3ff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    color: #b3b3ff; /* Light purple for title, consistent with Destiny theme */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Subtle white glow */
     font-family: 'Courier New', monospace;
     font-size: 36px;
     margin-bottom: 20px;
@@ -34,19 +97,20 @@ h1 {
 p {
     font-size: 18px;
     margin-bottom: 30px;
+    color: #d1d1e0; /* Slightly darker lavender for readability */
 }
 
 .raid-buttons {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Increased spacing between buttons */
+    gap: 20px;
     align-items: center;
 }
 
 button {
     padding: 12px 24px;
-    background: #1a1a4d;
-    border: 1px solid #4b4bff;
+    background: #1a1a4d; /* Dark purple-blue for buttons, matching Last Wish/Vow */
+    border: 1px solid #4b4bff; /* Purple-blue border */
     color: #e6e6fa;
     cursor: pointer;
     border-radius: 5px;
@@ -56,16 +120,27 @@ button {
     max-width: 300px;
 }
 
-.vow-button:hover {
-    background: #ff3333; /* Vow's dark red */
+.vow-button:hover, .vow-button:active {
+    background: #ff3333; /* Vow’s dark red */
     box-shadow: 0 0 15px rgba(255, 51, 51, 0.7); /* Red glow */
     transform: scale(1.05);
 }
 
-.last-wish-button:hover {
-    background: #b8860b; /* Last Wish's dark gold */
+.last-wish-button:hover, .last-wish-button:active {
+    background: #b8860b; /* Last Wish’s dark gold */
     box-shadow: 0 0 15px rgba(184, 134, 11, 0.7); /* Gold glow */
     transform: scale(1.05);
+}
+
+.root-nightmares-button:hover, .root-nightmares-button:active {
+    background: #ff8c00; /* Bright orange for Root of Nightmares */
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.7); /* Orange glow */
+    transform: scale(1.05);
+}
+
+.root-nightmares-button {
+    background: #1a1a4d; /* Default dark purple-blue, matching other buttons */
+    border: 1px solid #4b4bff; /* Purple-blue border, consistent with default theme */
 }
 
 /* Responsive adjustments */
